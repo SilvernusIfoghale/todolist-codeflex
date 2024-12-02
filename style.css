@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.wrapper {
+  background-color: #fff;
+  min-height: 500px;
+  border-radius: 10px;
+  min-width: 450px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+}
+/* To-do title  */
+.title-text {
+  text-align: center;
+  padding: 10px;
+}
+/* input section  */
+.screen {
+  border-top: 2px solid rgb(238, 237, 237);
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.screen input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+/* Add button  */
+.btn-add {
+  width: 85px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  background-color: rgb(37, 130, 244);
+  font-size: 0.7rem;
+}
+.btn-add:hover {
+  transition: all 0.6s ease;
+  background-color: rgb(78, 153, 245);
+  cursor: pointer;
+}
+
+/* Output section */
+.todo-list {
+  width: 100%;
+}
+.output {
+  display: flex;
+  margin: 10px 0;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.output #check {
+  margin-top: 2px;
+}
+.btn-delete {
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  border: none;
+  background-color: rgb(246, 42, 42);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btn-delete:hover {
+  transition: all 0.6s ease;
+  background-color: rgb(247, 73, 94);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .output-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+@media screen and (max-width: 465px) {
+  .wrapper {
+    min-width: 355px;
+  }
+}
