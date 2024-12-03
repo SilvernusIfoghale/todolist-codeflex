@@ -81,3 +81,51 @@ function getTodo() {
   const myTodo = localStorage.getItem("todoList") || "[]";
   return JSON.parse(myTodo);
 }
+
+//get All, Completed and Pending Buttons
+const buttonAll = document.querySelector(".btn-all");
+const buttonCompleted = document.querySelector(".btn-completed");
+const buttonPending = document.querySelector(".btn-pending");
+
+//Add button
+buttonAll.addEventListener("click", () => {
+  todoList = getTodo();
+  updateTodoList();
+});
+
+//Completed Button
+buttonCompleted.addEventListener("click", () => {
+  filterTodo();
+  //   console.log(object);
+});
+
+//filter todoList
+function filterTodo() {
+  todoList = getTodo();
+  updateTodoList();
+  todoList = todoList.filter((todo, index) => todo.completed !== false);
+  console.log(todoList);
+  todoEl.innerHTML = "";
+  todoList.map((input, inputIndex) => {
+    todoItem = createTodoItem(input, inputIndex);
+    todoEl.append(todoItem);
+  });
+}
+//Pending Button
+buttonPending.addEventListener("click", () => {
+  filterPending();
+  //   console.log(object);
+});
+
+//filter todoList Pending
+function filterPending() {
+  todoList = getTodo();
+  updateTodoList();
+  todoList = todoList.filter((todo, index) => todo.completed !== true);
+  console.log(todoList);
+  todoEl.innerHTML = "";
+  todoList.map((input, inputIndex) => {
+    todoItem = createTodoItem(input, inputIndex);
+    todoEl.append(todoItem);
+  });
+}
